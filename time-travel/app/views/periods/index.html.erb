@@ -1,14 +1,13 @@
 <h3>Periods!</h3>
 
 <ul>
-	<% @periods.each do |period| %>
+	<% @period.posts.each do |period| %>
 		<li> <%= period.name %> </li>
 
 			<ul>
 				<li><%= period.description %></li>
 				<li><%= period.start_time %></li>
 				<li><%= period.end_time %></li>
-				<li><%= :period %></li>
 			</ul>
 
 </ul>
