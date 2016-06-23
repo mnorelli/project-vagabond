@@ -1,16 +1,51 @@
-<div class="nav">
-	<%= link_to "Home", '/' %>
+<ul id="dropdown1" class="dropdown-content">
+  <li>Create</li>
+  <li class="divider"></li>
+  <li><%= link_to "Create Time Period", '/periods/new' %></li>
+  <li><%= link_to "Create Event", '/posts/new'  %></li>
+</ul>
 
-	<% if current_user != nil %>
-	  <%= link_to "Create Time Range", '/periods/new' %>
-	  <%= link_to "Create Event", '/posts/new'  %> 
-	  <%= link_to "Profile", user_id_path(current_user) %>
-	  <%= link_to "Logout", '/sessions', method: :delete %> 
-	<% else %>
-	  <%= link_to "Signup", '/signup' %>
-	  <span>or</span>
-	  <%= link_to "Login", '/signin' %>
-	<% end %>
-	<br>
-</div>
+<nav>
+  <div class="nav-wrapper cyan">
+    <%= link_to "Travel Log", '/' %>
+    <ul class="right hide-on-med-and-down">
+      <% if current_user != nil %>
+         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      	<li><%= link_to "Profile", user_id_path(current_user)%>
+      	<li><%= link_to "Logout", '/sessions', method: :delete %></li>
+      <% else %>
+		<li><%= link_to "Signup", '/signup' %></li>
+		<li><%= link_to "Login", '/signin' %></li>
+    </ul>
+  </div>
+  <% end %>
+</nav>
+
+<script>
+
+  $( document ).ready(function() {
+
+  		
+  		$(".dropdown-button").dropdown()
+
+
+        console.log( "document loaded" );
+    });
+
+</script>
+
+
+
+
+
+
+
+	
+	  
+	   
+	   
+	
+	  
+	
+
 
