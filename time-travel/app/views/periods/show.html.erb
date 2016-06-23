@@ -8,10 +8,13 @@
       <h2><%= @period.name %></h2>
       <h6><%= @period.start_time %> to <%= @period.end_time %></h6>
       <h4><%= @period.description %></h4>
+
       <%= link_to "Edit", period_edit_path(@period.id) %>
       <%= button_to "Delete", period_delete_path(@period), method: :delete, params: {period_id: @period.id} %>
+
     </div>
 
+<h3>Affliated Posts</h3>
   <% if @posts %>
     <% @period.posts.each do |post|%>
     <div class="post"> 
@@ -19,6 +22,9 @@
     </div>
     <% end %>
   <% end %>
+
+  <li><%= link_to @period.user.first_name + " " + @period.user.last_name, user_id_path(@period.user.id)%></li>
+  
 
   </div>
 
