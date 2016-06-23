@@ -70,7 +70,7 @@ Rails.application.routes.draw do
  patch '/periods/:id', to: 'periods#update'
  
  #destryos individual period
- delete '/periods/:id', to: 'periods#destroy'
+ delete '/periods/:id', to: 'periods#destroy', as: 'period_delete'
 
 end
 
