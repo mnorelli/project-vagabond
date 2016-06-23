@@ -13,7 +13,7 @@ Period.destroy_all
 User.destroy_all
 
 User.create([
-  {first_name:"Admin",last_name:"User",email:"admin@time.com",image:"http://donatered-asset.s3.amazonaws.com/assets/default/default_user-https://i.ytimg.com/vi/sWprbfWpy9E/hqdefault.jpg", password: "password"},
+  {first_name:"Admin",last_name:"User",email:"admin@time.com",image:"http://i.ytimg.com/vi/sWprbfWpy9E/hqdefault.jpg", password: "password"},
   {first_name:"Justin",last_name:"Timberlake",email:"jt@jt.com",image:"http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg", password: "password"},
   {first_name:"Annabelle",last_name:"Thaddeus",email:"abt@gotexas.com",image:"http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg", password: "password"}
   ])
