@@ -23,10 +23,18 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id])
-    @periods = Period.where(user_id: params[:id])
-    render :show
+    if current_user == admin_user
+      @users = User.all
+      @user = User.find(admin_user.id)
+      @posts = Post.where(user_id: admin_user.id)
+      @periods = Period.where(user_id: admin_user.id)
+      render :admin
+    else
+      @user = User.find(params[:id])
+      @posts = Post.where(user_id: params[:id])
+      @periods = Period.where(user_id: params[:id])
+      render :show
+    end
   end
 
 

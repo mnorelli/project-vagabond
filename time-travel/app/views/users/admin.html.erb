@@ -1,0 +1,29 @@
+<div>
+  Welcome, <%= @user.first_name %>
+</div>
+<div>
+<%= image_tag(@user.image, :alt => "user image") %>
+</div>
+<%= @user.created_at %>
+<hr>
+<hr>
+<div><b>Current Users</b></div>
+ <% @users.each do |user| %>
+
+    <div><%=user.first_name%> <%=user.last_name%> <%=user.email%> <%="Posts: #{user.posts.count}" %> <%="Periods: #{user.periods.count}" %></div>
+    <% end %>
+<hr>
+<hr>
+<div><b>Admin Places</b></div>
+<% @posts.each do |post| %>
+
+  <img class="post-image-small" src="<%= post.image %>" alt="image for post">
+  <h6><%= link_to post.title, post_path(post) %> <%= post.post_date %> </h6>
+  <%end%>
+<hr>
+<hr>
+<div><b>Admin Posts</b></div>
+<% @periods.each do |period| %>
+
+  <div><%=period.name%> <%=period.start_time%></div>
+  <% end %>
