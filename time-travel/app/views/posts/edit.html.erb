@@ -11,7 +11,7 @@ Edit Page
     <%= f.text_field :image, value: @post.image %>
   </div>
   <div>
-    <%= f.text_field :post_date, value: @post.post_date %>
+    <%= f.date_field :post_date, value: @post.post_date %>
   </div>
   <%= f.submit "Save Post" %>
 <% end %>

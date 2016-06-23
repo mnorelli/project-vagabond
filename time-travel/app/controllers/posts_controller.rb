@@ -40,6 +40,14 @@ class PostsController < ApplicationController
   def update
   	@post = Post.find(params[:id])
     post_params = params.require(:post).permit(:title, :description, :image, :user_id, :period_id, :post_date)
+    
+     periods = Period.all
+     periods.each do |period| 
+       if period.start_time <= @post.post_date && period.end_time >= @post.post_date
+         period.posts.push(@post) 
+      end
+    end
+
     if @post.update_attributes(post_params)
   	redirect_to post_path(@post)
     #   render edit_post_path

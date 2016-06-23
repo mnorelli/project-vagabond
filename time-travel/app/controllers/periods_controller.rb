@@ -38,6 +38,15 @@ before_action :require_login, :except => [:index, :show]
   	def update
   		@period = Period.find(params[:id])
     	period_params = params.require(:post).permit(:title, :description, :image, :user_id, :period_id, :post_date)
+
+      @posts = Post.all
+      @posts.each do |post|
+        if @period.start_time <= post.post_date && @period.end_time >= post.post_date
+          @period.posts.push(post)
+        end
+      end
+      
+      redir
     	if @period.update_attributes(period_params)
   			redirect_to '/periods/:id'
     	end
