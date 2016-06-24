@@ -1,3 +1,59 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*//////////////////////////*/
+
+/*All Posts Page*/
+.all-posts-index-title {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.posts-container {
+	text-align: center;
+	color: black; 
+}
+
+.post-image-small {
+	margin-top: 20px;
+	margin-bottom: -5px;
+}
+
+.posts-time-travel-date {
+	font-weight: bold;
+	font-size: 40px;
+	float: left;
+	margin-top: -155px;
+}
+
+.posts-time-travel-description {
+	margin: 10px;
+	font-size: 18px;
+	/*max-height: 400px; 
+	max-width: 470px;*/
+}
+
+.posts-time-travel-by {
+	color: red;
+}
+
+/*//////////////////////////*/
+/*Posts New Page*/
+
+.posts-new-title {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/*.new-post-description {
+	max-height: 100px;
+}*/
+
+.image-uploadcare-button {
+	margin-bottom: 20px;
+	/*display: inline-block;*/
+}
+
+.new-post-button {
+	text-align: center;
+}

@@ -1,6 +1,5 @@
 <div class="container">
-
-	<h3>Events</h3>
+<h1 class="all-posts-index-title">Time Travel Events!</h1>
 
 	<div>
 	There are currently <%= @posts.length %> events.
@@ -8,14 +7,14 @@
 
 	<% @posts.each do |post| %>
 	<hr>
+<div class="posts-container">	
 	<img class="post-image-small" src="<%= post.image %>" alt="image for post">
-	<h4><%= link_to post.title, post_path(post) %></h4>
-	<h6><%= post.post_date %>  </h6>
-	<h6><%= post.description %> </h6>
-	<h6><%= post.updated_at%></h6>
-	<h6>By: <%= link_to post.user.first_name + " " + post.user.last_name, user_id_path(post.user.id)%></h6>
-
-
+	<h4 class="posts-time-travel-title"><%= link_to post.title, post_path(post) %></h4>
+	<h6 class="posts-time-travel-date"><%= post.post_date %>  </h6>
+	<h6 class="posts-time-travel-description"><%= post.description %> </h6>
+	<h6 class="posts-time-travel-updated"><%= post.updated_at%></h6>
+	<h6 class="posts-time-travel-by">By: <%= link_to post.user.first_name + " " + post.user.last_name, user_id_path(post.user.id)%></h6>
+</div>
 
 	<% end %>
 
