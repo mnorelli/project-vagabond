@@ -28,9 +28,11 @@ Rails.application.routes.draw do
 
 
   ###route for user edit###
-  get "/users/:id/edit", to: "users#edit"
+  get "/users/:id/edit", to: "users#edit", as: "user_edit"
 
-  patch "/users/edit/:id", to: "users#update"
+  patch "/users/edit/:id", to: "users#update", as: "update_user"
+
+  get '/users/:id/settings', to: "users#settings", as: "user_settings"
 
 
   #posts
