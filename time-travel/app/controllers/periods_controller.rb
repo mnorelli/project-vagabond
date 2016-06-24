@@ -54,11 +54,31 @@ before_action :require_login, :except => [:index, :show]
 
   	def destroy
   		@period = Period.find(params[:id])
-  		if current_user.id != @user.id 
-        redirect_to '/periods/:id'
+
+      # remove user's posts on this period
+      id = @current_user.id
+      user_posts = @period.posts.where({user_id:id})
+      if user_posts.count > 0
+        user_posts.each do |post|
+          post.destroy
+        end
       else
-        @period.destroy
+        # byebug
+        @period.posts.delete(user_posts)
       end
+
+      # remove association(s)
+      joins = PeriodPost.where({period_id:@period.id})
+      if joins.count > 0
+        joins.each do |join|
+          join.destroy
+        end
+      end
+
+      #remove the period
+      @period.destroy
+      redirect_to '/periods'
     end
+
     
 end

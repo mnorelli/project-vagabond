@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
    def create
-    user_params = params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation)
+    user_params = params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :image)
     @user = User.new(user_params)
     if @user.save
       login(@user) # <-- login the user
@@ -23,10 +23,18 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id])
-    @periods = Period.where(user_id: params[:id])
-    render :show
+    if current_user == admin_user
+      @users = User.all
+      @user = User.find(admin_user.id)
+      @posts = Post.where(user_id: admin_user.id)
+      @periods = Period.where(user_id: admin_user.id)
+      render :admin
+    else
+      @user = User.find(params[:id])
+      @posts = Post.where(user_id: params[:id])
+      @periods = Period.where(user_id: params[:id])
+      render :show
+    end
   end
 
 
@@ -39,9 +47,19 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def settings
+    @user = User.find(params[:id])
+    if current_user.id != @user.id 
+      redirect_to '/users/' + @user.id.to_s
+    else
+      render :settings
+    end
+  end
+
   def update
   	@user = User.find(params[:id])
-  	user_params= params.require(:user).permit(:first_name, :last_name, :email, :password)
+  	user_params= params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :image)
   	if User.update(@user.id, user_params)
   		redirect_to "/users/#{@user.id}"
   	else
