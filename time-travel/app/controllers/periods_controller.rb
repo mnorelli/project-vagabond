@@ -28,7 +28,9 @@ before_action :require_login, :except => [:index, :show]
 
   	def edit
   		@period = Period.find(params[:id])
-  		if current_user.id != @period.user.id 
+
+  		if current_user.id != @period.user_id 
+
         redirect_to '/periods/' + @period.id.to_s
       else
         render :edit
@@ -37,7 +39,9 @@ before_action :require_login, :except => [:index, :show]
 
   	def update
   		@period = Period.find(params[:id])
-    	period_params = params.require(:period).permit(:title, :description, :image, :user_id, :period_id, :post_date)
+
+    	period_params = params.require(:period).permit(:title, :description, :image, :start_time, :end_time, :image)
+
 
       @posts = Post.all
       @posts.each do |post|
@@ -45,10 +49,9 @@ before_action :require_login, :except => [:index, :show]
           @period.posts.push(post)
         end
       end
-      
-      
+
     	if @period.update_attributes(period_params)
-  			redirect_to '/periods/:id'
+  			redirect_to '/periods/'+params[:id].to_s
     	end
   	end
 

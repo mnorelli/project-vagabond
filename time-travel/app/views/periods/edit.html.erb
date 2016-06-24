@@ -1,7 +1,8 @@
 Edit Time Period
 
 
-<%= form_for @period, url: '/period/#{@period.id}/edit',  method: :patch do |f| %>
+<%= form_for @period, url: '/periods/'+@period.id.to_s,  method: :patch do |f| %>
+
   
   <label>Time Period Name</label>
   <div>

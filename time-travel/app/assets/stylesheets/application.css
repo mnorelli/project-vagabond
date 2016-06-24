@@ -48,3 +48,17 @@
   margin-bottom: 20px;
   clear: left;
 }
+
+.imagecontainer {
+  height: auto;
+  width: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#settings{
+  align: margin;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

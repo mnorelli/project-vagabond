@@ -1,22 +1,43 @@
-<div class="nameDiv">
-  <h2><%= @user.first_name %> <%= @user.last_name%></h2>
+<%= button_to 'User Settings', user_settings_path, class:"cyan btn settings", :method =>:get %>
+
+<div class= "container">
+<div class="card col s12 m6">
+  <div class='card-img'>
+    <img class="responsive-img" id="profileImg" src= "<%= @user.image %>" class="profileImage">
+    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <br>
+    <button data-target="modal1" class="cyan btn modal-trigger">Edit Profile</button>
+  </div>
 </div>
+
 <div>
 	<img class="circle responsive-img" src="<%= @user.image%>"></img>
+
 </div>
 
-<br>
-User Since: <%= @user.created_at %>
 
+<div class="container">
+  <h3>Events</h3>
+  <div>
+    <% @posts.each do |post| %>
+    <a href="/posts/:id"><img class="post-image-small" src=<%= post.image %> alt="image for post">
+    <br>
+    <h5><%= link_to post.title, post_path(post) %></h5></a>
+  </div>
+    <%end%>
+  <span></span>
+  <br>
+  <h3>Time Periods</h3>
+  <div>
+    <% @periods.each do |period| %>
+    <a href="/periods/:id"><img class="post-image-small" src=<%= period.image %> alt="image for period">
+    <br>
+    <h5><%=period.name%></h5></a>
+  </div>
+    <%end%>
 
-<div>Your Visit Places</div>
-<% @posts.each do |post| %>
-<hr>
-  <img class="post-image-small" src="<%= post.image %>" alt="image for post">
-  <h4><%= link_to post.title, post_path(post) %></h4>
-  <h6><%= post.post_date %>  </h6>
-  <h6><%= post.description %> </h6>
-  <%end%>
+</div>
+
 
 <div>Time Adventures</div>
 <% @periods.each do |period| %>
@@ -24,14 +45,10 @@ User Since: <%= @user.created_at %>
 <div><%= link_to period.name, period_id_path(period)%></div>
 <div><%=period.start_time%></div>
 
-<% end %>
+
 
 <% if current_user.id == @user.id %>
-	
 
-<!-- Modal Trigger -->
-
-  <button data-target="modal1" class="cyan btn modal-trigger">Edit Profile</button>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
@@ -48,23 +65,26 @@ User Since: <%= @user.created_at %>
      		<label>Last Name</label><%= f.text_field :last_name, value: @user.last_name %>
     	</div>
 
-    	<div>
-      		<label>Image</label><%= f.text_field :image, value: @user.image %>
-    	</div>
-
     	<div class="modal-footer">
       		<%=f.submit "Save", class:"cyan btn" %>
     	</div>
-    	<% end %>
+    	
+      Edit Profile Image
+      <div>
+        <%= f.hidden_field :image, role: "uploadcare-uploader" %>
+      </div>
+
+      <% end %>
   	</div>
   </div>
 
-	<%= button_to 'User Settings', user_settings_path, class:"cyan btn", :method =>:get %>
-
-  <% end %>
+  <%end%>
 
   <script>
-  $(document).ready(function(){
-    $('.modal-trigger').leanModal();
-  });
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
   </script>
+
+
+
