@@ -10,9 +10,15 @@ Create New Post
   <div>
     <%= f.text_field :image, placeholder: "Image" %>
   </div>
+
   <div>
     <%= f.date_field :post_date, placeholder: "Date" %>
   </div>
+
+  <div>
+    <%= f.hidden_field :image, role: "uploadcare-uploader" %>
+  </div>
+  
   <%= f.submit "Create Post" %>
 <% end %>
 
