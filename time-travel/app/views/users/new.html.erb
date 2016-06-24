@@ -1,34 +1,36 @@
-<h1>Sign Up</h1>
+<div class="container">
+  <h1>Sign Up</h1>
 
-<% if flash[:error] %>
-  <div class="notice">
-    <%= flash[:error] %>
-  </div>
-<% end %>
+  <% if flash[:error] %>
+    <div class="notice">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 
-<%= form_for @user do |f| %>
+  <%= form_for @user do |f| %>
 
-  <div>
-    <label><%= f.text_field :first_name, placeholder: "First Name" %>
-  </div>
+    <div>
+      <label><%= f.text_field :first_name, placeholder: "First Name" %>
+    </div>
 
-  <div>
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
-  </div>
+    <div>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+    </div>
 
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-    <%= f.text_field :email_confirmation, required: true, placeholder: "Confirm Email" %>
+    <div>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <%= f.text_field :email_confirmation, required: true, placeholder: "Confirm Email" %>
 
-  </div>
-    <%= f.text_field :image, placeholder: "Image URL" %>
-  <div>
+    </div>
+      <%= f.text_field :image, placeholder: "Image URL" %>
+    <div>
 
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-    <%= f.password_field :password_confirmation, required: true, placeholder: "Confirm Password" %>
-  </div>
+    <div>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, required: true, placeholder: "Confirm Password" %>
+    </div>
 
-<%=f.submit "Sign Up" %>
+  <%=f.submit "Sign Up" %>
 
-<% end %>
+  <% end %>
+</div>
