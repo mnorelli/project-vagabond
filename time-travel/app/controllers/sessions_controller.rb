@@ -11,7 +11,10 @@ class SessionsController < ApplicationController
       		login(@user)
       		redirect_to "/users/#{@user.id}"
     	else
+          flash[:error] = 'Invalid email/password combination'
+
       		redirect_to "/signin"
+
     	end
   	end
 

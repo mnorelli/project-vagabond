@@ -1,0 +1,37 @@
+<div class = 'center-align'>
+<h1>Time is Your Best Friend</h1>
+</div>
+
+<div class = 'container'>
+<% @periods.each do |period| %>
+      <div class="row">
+        <div class="col s12">
+          <div class="card ">
+            <div class="card-image">
+              <img src= <%= period.image %> alt = "Period Img">
+              <span class="card-title"><a href='#'> <%=period.name%> </a></span>
+            </div>
+            <div class="card-content">
+              <p><%= period.start_time %> to <%= period.end_time %></p>
+              <p><%= period.description %></p>
+            </div>
+            <div class="card-action">
+            	<p>Events:</p>
+              <a href="#">   
+               
+               <% period.posts.each do |post|%>
+				<%= link_to post.title, post %>
+				<% end %>
+				
+				</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<%end%>
+</div>
+
+<script type="text/javascript">
+	
+	
+</script>

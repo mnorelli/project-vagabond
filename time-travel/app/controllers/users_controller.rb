@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   
   before_action :require_login, :only => [:edit, :show]
 
-  def home
-    render :index
-  end
+  # def home
+  #   render :index
+  # end
 
   def new
   	@user = User.new
