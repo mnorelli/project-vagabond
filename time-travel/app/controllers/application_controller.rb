@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find_by(id:session[:user_id])
   end
 
+  def admin_user 
+    @admin_user = User.find_by(first_name:"Admin",last_name:"User")
+  end
+
   def require_login
     if !current_user
       redirect_to '/signin'

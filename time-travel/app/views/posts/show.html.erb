@@ -2,8 +2,14 @@
 
 
 <img class="post-image-small" src="<%= @post.image %>" alt="image for post">
-<h4><%= @post.title  %></h4>
-<h6><%= @post.post_date %> 
-<h6><%= @post.description %> </h6>
+<h4>Title:<%= @post.title  %></h4>
+<h5>Post Date:<%= @post.post_date %></h5>
+<h6>Description:<%= @post.description %> </h6>
+
 <%= link_to "Edit", edit_post_path(@post.id) %>
-<%= button_to "Delete", delete_post_path(@post), method: :delete, params: {post_id: @post.id}, :class => "btn" %>
+
+<%= button_to "Delete", delete_post_path(@post), method: :delete, params: {post_id: @post.id}, data: {confirm: "Are you sure?"}, :class => "btn" %>
+
+<h6>By: <%= link_to @post.user.first_name + " " + @post.user.last_name, user_id_path(@post.user.id)%></h6>
+<h6>Last Updated: <%=@post.updated_at%></h6>
+

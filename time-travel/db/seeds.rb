@@ -13,6 +13,7 @@ Period.destroy_all
 User.destroy_all
 
 User.create([
+  {first_name:"Admin",last_name:"User",email:"admin@time.com",image:"http://i.ytimg.com/vi/sWprbfWpy9E/hqdefault.jpg", password: "password"},
   {first_name:"Justin",last_name:"Timberlake",email:"jt@jt.com",image:"http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg", password: "password"},
   {first_name:"Annabelle",last_name:"Thaddeus",email:"abt@gotexas.com",image:"http://donatered-asset.s3.amazonaws.com/assets/default/default_user-884fcb1a70325256218e78500533affb.jpg", password: "password"}
   ])
@@ -35,7 +36,7 @@ description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
 image:"https://rosswolfe.files.wordpress.com/2011/09/the-machine-age-3pc.jpg"},
  {name:"World War I",start_time:Date.new(1914), end_time:Date.new(1918),
 description:"The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymph.",
-image:"https://images2.storyjumper.com/transcoder.png?trim&id=d1-tele2b76k-55zwjxjaf&maxw=256&maxh=256"},
+image:"http://www.natgeocreative.com/comp/Y2/438/947802.jpg"},
  {name:"Roaring Twenties",start_time:Date.new(1920), end_time:Date.new(1929),
 description:"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and fe.",
 image:"https://pbs.twimg.com/profile_images/418839715312181248/d9fDpwke.jpeg"},
@@ -51,10 +52,12 @@ image:"http://images.wildtangent.com/ancientrome/big_icon.jpg"}
 @posts = Post.all
 @periods = Period.all
 
-@posts[0].user_id = @users[0].id
-@posts[1].user_id = @users[0].id
-@posts[2].user_id = @users[1].id
-@posts[3].user_id = @users[1].id
+## admin, user 0, will not be added to any posts or periods
+## admin user is only for inhereting content from deleted users
+@posts[0].user_id = @users[1].id
+@posts[1].user_id = @users[1].id
+@posts[2].user_id = @users[2].id
+@posts[3].user_id = @users[2].id
 
 @posts.each do |post|
   @periods.each do |period|
@@ -65,11 +68,11 @@ image:"http://images.wildtangent.com/ancientrome/big_icon.jpg"}
   post.save
 end
 
-@periods[0].user_id = @users[0].id
-@periods[1].user_id = @users[0].id
-@periods[2].user_id = @users[1].id
-@periods[3].user_id = @users[1].id
-@periods[4].user_id = @users[0].id
+@periods[0].user_id = @users[1].id
+@periods[1].user_id = @users[1].id
+@periods[2].user_id = @users[2].id
+@periods[3].user_id = @users[2].id
+@periods[4].user_id = @users[1].id
 
 @periods.each do |period|
   period.save
