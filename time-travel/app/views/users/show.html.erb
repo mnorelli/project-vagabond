@@ -2,7 +2,7 @@
   <h2><%= @user.first_name %> <%= @user.last_name%></h2>
 </div>
 <div>
-	<img class="circle responsive-img" src="<%= @user.image%></img>">
+	<img class="circle responsive-img" src="<%= @user.image%>"></img>
 </div>
 
 <br>
@@ -21,7 +21,7 @@ User Since: <%= @user.created_at %>
 <div>Time Adventures</div>
 <% @periods.each do |period| %>
 <br>
-<div><%=period.name%></div>
+<div><%= link_to period.name, period_id_path(period)%></div>
 <div><%=period.start_time%></div>
 
 <% end %>

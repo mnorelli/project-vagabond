@@ -68,10 +68,10 @@ Rails.application.routes.draw do
  get '/periods/:id/edit', to: 'periods#edit', as: 'period_edit'
 
  #gets individual period
- get '/periods/:id', to: 'periods#show'
+ get '/periods/:id', to: 'periods#show', as: 'period_id'
 
  #updates individual period
- patch '/periods/:id', to: 'periods#update'
+ patch '/periods/:id', to: 'periods#update', as: 'period_update'
  
  #destryos individual period
  delete '/periods/:id', to: 'periods#destroy', as: 'period_delete'
