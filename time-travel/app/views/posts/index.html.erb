@@ -1,8 +1,9 @@
-<h1 class="all-posts-index-title">Time Travel Posts!</h1>
+<div class="container">
+<h1 class="all-posts-index-title">Time Travel Events!</h1>
 
-<!-- <div>
-There are currently <%= @posts.length %>
-</div> -->
+	<div>
+	There are currently <%= @posts.length %> events.
+	</div>
 
 	<% @posts.each do |post| %>
 	<hr>
@@ -15,5 +16,7 @@ There are currently <%= @posts.length %>
 	<h6 class="posts-time-travel-by">By: <%= link_to post.user.first_name + " " + post.user.last_name, user_id_path(post.user.id)%></h6>
 </div>
 
-<% end %>
+	<% end %>
+
+</div>
 

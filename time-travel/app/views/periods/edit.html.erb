@@ -1,35 +1,37 @@
-Edit Time Period
+<div class="container">
+  Edit Time Period
 
 
-<%= form_for @period, url: '/periods/'+@period.id.to_s,  method: :patch do |f| %>
-  
-  <label>Time Period Name</label>
-  <div>
-    <%= f.text_field :name, value: @period.name %>
-  </div>
-  
-  <label>Description</label>
-  <div>
-    <%= f.text_area :description, value: @period.description %>
-  </div>
-  
-  <label> Start Date (YYYY/MM/DD)</label>
-  <div>
-    <%= f.date_field :start_time, value: @period.start_time %>
-  </div>
-  
-  <label> End Date (YYYY/MM/DD)</label>
-  <div>
-    <%= f.date_field :end_time, value: @period.end_time %>
-  </div>
-
-  <label>Image</label>
-
-  <div>
-    <%= f.text_field :image, value: @period.image %>
-  </div>
-
-  <%= f.submit "Edit Time Period" %>
-<% end %>
+  <%= form_for @period, url: '/periods/'+@period.id.to_s,  method: :patch do |f| %>
     
+    <label>Time Period Name</label>
+    <div>
+      <%= f.text_field :name, value: @period.name %>
+    </div>
     
+    <label>Description</label>
+    <div>
+      <%= f.text_area :description, value: @period.description %>
+    </div>
+    
+    <label> Start Date (YYYY/MM/DD)</label>
+    <div>
+      <%= f.date_field :start_time, value: @period.start_time %>
+    </div>
+    
+    <label> End Date (YYYY/MM/DD)</label>
+    <div>
+      <%= f.date_field :end_time, value: @period.end_time %>
+    </div>
+
+    <label>Image</label>
+
+    <div>
+      <%= f.text_field :image, value: @period.image %>
+    </div>
+
+    <%= f.submit "Edit Time Period" %>
+  <% end %>
+</div>
+      
+      
