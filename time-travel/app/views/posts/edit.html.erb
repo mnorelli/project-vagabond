@@ -1,17 +1,26 @@
 Edit Page
 
 <%= form_for @post do |f| %>
+  
+  Post Title
   <div>
     <%= f.text_field :title, value: @post.title %>
   </div>
+  
+  Post Description
   <div>
     <%= f.text_area :description, value: @post.description %>
   </div>
-  <div>
-    <%= f.text_field :image, value: @post.image %>
-  </div>
+  
+  Post Date Field
   <div>
     <%= f.date_field :post_date, value: @post.post_date %>
   </div>
+
+  Click Image Link to Edit
+  <div>
+    <%= f.hidden_field :image, role: "uploadcare-uploader" %>
+  </div>
+
   <%= f.submit "Save Post" %>
 <% end %>
