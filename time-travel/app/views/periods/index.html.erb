@@ -1,21 +1,17 @@
-<h3>Periods!</h3>
+<div class="container">
 
-<% @periods.each do |period| %>
-  <div class="period">
-    <div class="period-top">
-      <img src=<%= period.image %> alt="Period Img" class="post-image-small">
-    </div>
-    <div class="period-body">
-      <h2><%= link_to period.name, controller: "periods", action: "show", id: period %></h2>
-    	<h6><%= period.start_time %> to <%= period.end_time %></h6>
-      <h4><%= period.description %></h4>
-    </div>
+  <h3>Time Periods</h3>
 
-    <% period.posts.each do |post|%>
-    <div class="post"> 
-      <%= link_to post.title, post %>
-    </div>
-    <% end %>
 
-  </div>
-<% end %>
+  <% @periods.each do |period| %>
+  <hr>
+  <img class="post-image-small" src="<%= period.image %>" alt="image for post">
+  <h4><%= link_to period.name, period_path(period) %></h4>
+  <h6><%= period.description %> </h6>
+  <h6>By: <%= link_to period.user.first_name + " " + period.user.last_name, user_id_path(period.user.id)%></h6>
+
+
+
+  <% end %>
+
+</div>

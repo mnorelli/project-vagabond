@@ -68,7 +68,7 @@ Rails.application.routes.draw do
  get '/periods/:id/edit', to: 'periods#edit', as: 'period_edit'
 
  #gets individual period
- get '/periods/:id', to: 'periods#show'
+ get '/periods/:id', to: 'periods#show', as: 'period'
 
  #updates individual period
  patch '/periods/:id', to: 'periods#update'
