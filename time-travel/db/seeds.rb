@@ -36,7 +36,7 @@ description:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
 image:"https://rosswolfe.files.wordpress.com/2011/09/the-machine-age-3pc.jpg"},
  {name:"World War I",start_time:Date.new(1914), end_time:Date.new(1918),
 description:"The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymph.",
-image:"https://images2.storyjumper.com/transcoder.png?trim&id=d1-tele2b76k-55zwjxjaf&maxw=256&maxh=256"},
+image:"http://www.natgeocreative.com/comp/Y2/438/947802.jpg"},
  {name:"Roaring Twenties",start_time:Date.new(1920), end_time:Date.new(1929),
 description:"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and fe.",
 image:"https://pbs.twimg.com/profile_images/418839715312181248/d9fDpwke.jpeg"},
