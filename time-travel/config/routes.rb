@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  #Home/About Page
+  get '/', to: 'about#home', as: 'home'
 
   #USERS
-  get '/', to: 'users#home', as: 'home'
+  # get '/', to: 'users#home', as: 'home'
 
   #route for sign up#
   get '/signup', to: "users#new", as: "new_user"
