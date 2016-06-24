@@ -2,7 +2,9 @@
   <h2><%= @user.first_name %> <%= @user.last_name%></h2>
 </div>
 <div>
-	<img class="circle responsive-img" src="<%= @user.image%>">
+
+	<img class="circle responsive-img" src=<%= @user.image%>>
+
 </div>
 
 <br>
@@ -48,14 +50,16 @@ User Since: <%= @user.created_at %>
      		<label>Last Name</label><%= f.text_field :last_name, value: @user.last_name %>
     	</div>
 
-    	<div>
-      		<label>Image</label><%= f.text_field :image, value: @user.image %>
-    	</div>
-
     	<div class="modal-footer">
       		<%=f.submit "Save", class:"cyan btn" %>
     	</div>
-    	<% end %>
+    	
+      Edit Profile Image
+      <div>
+        <%= f.hidden_field :image, role: "uploadcare-uploader" %>
+      </div>
+
+      <% end %>
   	</div>
   </div>
 
