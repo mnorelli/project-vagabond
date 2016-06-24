@@ -13,5 +13,10 @@ Edit Page
   <div>
     <%= f.date_field :post_date, value: @post.post_date %>
   </div>
+
+  <div>
+    <%= f.hidden_field :image, role: "uploadcare-uploader" %>
+  </div>
+
   <%= f.submit "Save Post" %>
 <% end %>

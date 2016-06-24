@@ -21,9 +21,11 @@ Create Periods
   </div>
 
   <div>
-    <%= f.text_field :image, placeholder: "Image URL" %>
+    <%= f.hidden_field :image, role: "uploadcare-uploader" %>
   </div>
- 
+
   <%= f.submit "Create Period" %>
+
 <% end %>
+  
 

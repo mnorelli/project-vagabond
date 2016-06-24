@@ -23,10 +23,12 @@ Edit Time Period
     <%= f.date_field :end_time, value: @period.end_time %>
   </div>
 
-  <label>Image</label>	
+  <label>Image</label>
+
   <div>
     <%= f.text_field :image, value: @period.image %>
   </div>
+
   <%= f.submit "Edit Time Period" %>
 <% end %>
     
